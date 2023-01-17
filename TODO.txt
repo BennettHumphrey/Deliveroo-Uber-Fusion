@@ -1,0 +1,15 @@
+    GENERAL
+_________________
+-Readme (In .md)
+
+    UBER
+_____________
+
+
+    DELIVEROO
+_________________
+
+-Animation not working
+-Adjust origin coordinates for James Bay
+-Add real restaurants (Victoria)
+-Search function?
