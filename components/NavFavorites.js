@@ -12,8 +12,8 @@ const data = [
         location: "Home",
         destination: {
             location: {
-                lat: 48.416727,
-                lng: -123.378812,
+                lat: 48.417415,
+                lng: -123.383135,
             },
             description: "James Bay, Victoria, BC, Canada"
             },
@@ -24,8 +24,8 @@ const data = [
         location: "Work",
         destination: {
             location: {
-                lat: 48.456302,
-                lng: -123.440759,
+                lat: 48.453626,
+                lng: -123.441995,
             },
             description: "View Royal, Victoria, BC, Canada"
         },

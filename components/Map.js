@@ -54,7 +54,7 @@ const Map = () => {
     <MapView 
         ref={mapRef}
         className="flex-1" 
-        mapType='mutedStandard'
+        mapType={currentMap === "uber" ? "mutedStandard" : "standard"}
         initialRegion={{
             latitude: origin.location.lat,
             longitude: origin.location.lng,
@@ -69,7 +69,7 @@ const Map = () => {
                 destination={destination.description}
                 apikey={GOOGLE_MAPS_APIKEY}
                 strokeWidth={3}
-                strokeColor="black"
+                strokeColor={currentMap === "uber" ? "black" : "#00CCBB"}
             />
         )}
 
@@ -92,6 +92,7 @@ const Map = () => {
             }}
             title="Destination"
             description={destination.description}
+            pinColor={currentMap === "uber" ? "black" : "#00CCBB"}
             />
         )}
         

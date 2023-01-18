@@ -9,7 +9,7 @@ _____________
     DELIVEROO
 _________________
 
--Animation not working
--Adjust origin coordinates for James Bay
--Add real restaurants (Victoria)
+-Update featured categories
+-Add estimated arrival time for food
+-Change map colors for deliveroo
 -Search function?

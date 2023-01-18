@@ -7,13 +7,15 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { XMarkIcon } from 'react-native-heroicons/solid';
 import * as Progress from 'react-native-progress'
 import MapView, { Marker } from 'react-native-maps'
-import { setCurrentMap } from '../slices/navSlice';
+import { selectTravelTimeInfo, setCurrentMap } from '../slices/navSlice';
 import Map from '../components/Map';
+import { formatTime } from '../components/formatTime';
 
 
 const DeliveryScreen = () => {
   const navigation = useNavigation();
   const restaurant = useSelector(selectRestaurant);
+  const travelTimeInfo = useSelector(selectTravelTimeInfo)
   const dispatch = useDispatch();
   const isFocused = useIsFocused();
 
@@ -21,8 +23,8 @@ const DeliveryScreen = () => {
     if(isFocused){
     dispatch(setCurrentMap("deliveroo"));
   }
+  console.log(`travelTimeInfo ${travelTimeInfo?.duration?.value}`)
   }, [isFocused])
-
   return (
     <View className="bg-[#00CCBB] flex-1" >
       <SafeAreaView className="z-50" >
@@ -37,7 +39,7 @@ const DeliveryScreen = () => {
           <View className="flex-row justify-between" >
             <View  >
               <Text className="text-gray-400 text-lg" >Estimated Arrival</Text>
-              <Text className="text-3xl font-bold" >50-60 Minutes</Text>
+              <Text className="text-3xl font-bold" >{travelTimeInfo && `${formatTime(travelTimeInfo?.duration?.value + 1400)}- ${formatTime(travelTimeInfo?.duration?.value + 2000)}`}</Text>
             </View>
             <Image  
               source={{
