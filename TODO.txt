@@ -9,7 +9,4 @@ _____________
     DELIVEROO
 _________________
 
--Update featured categories
--Add estimated arrival time for food
--Change map colors for deliveroo
 -Search function?

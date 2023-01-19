@@ -99,14 +99,14 @@ const DeliverooHomeScreen = () => {
             <ScrollView className="bg-gray-100" contentContainerStyle={{paddingBottom: 150}} >
                 {/* Categories */}
                 <Categories  />
-                {/* Search Results
+                {/* Search Results */}
                 {searchText && (
                     <FeaturedRow  
                     title="Search"
                     type="search"
                     description="Search Results"
                     />
-                )} */}
+                )}
                 {/* Featured */}
                 {featuredCategories?.map((cat) => ( 
                         <FeaturedRow 
@@ -117,11 +117,7 @@ const DeliverooHomeScreen = () => {
                         description={cat.short_description}
                     />)
                 )}
-                {/* <FeaturedRow id="1" title="Featured" description="Paid placements from our partners" /> */}
-                {/* Tasty Discounts */}
-                {/* <FeaturedRow id="2" title="Tasty Discounts" description="Everyone's been enjoying these tasty discounts!"  /> */}
-                {/* Offers near you */}
-                {/* <FeaturedRow id="3" title="Offers near you!" description="Why not support your local restaurant tonight?"  /> */}
+
 
             </ScrollView>
 

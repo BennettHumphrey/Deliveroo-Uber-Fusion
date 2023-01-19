@@ -1,5 +1,5 @@
 import { View, Text, TouchableOpacity, FlatList, Image } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Icon } from 'react-native-elements';
@@ -38,7 +38,11 @@ const RideOptionsCard = () => {
     ]
 
     const surgeRate = 1.5;
-    // const cost = travelTimeInfo?.duration.value * surgeRate * multiplier / 100;
+
+    useEffect(() => {
+        console.log(`travelTimeInfo: ${travelTimeInfo?.duration}`)
+    }, [travelTimeInfo, selected])
+
 
   return (
     <SafeAreaView className="bg-white flex-grow" >
@@ -57,7 +61,7 @@ const RideOptionsCard = () => {
             className="flex-1"
             data={data}
             keyExtractor={(item) => item.id}
-            renderItem={({item: { id, title, priceMultiplier, timeMultiplier, image }, item}) => (
+            renderItem={({ item: { id, title, priceMultiplier, timeMultiplier, image }, item }) => (
                 <TouchableOpacity 
                     onPress={() => setSelected(item)}
                     className={id===selected?.id ? "flex-row justify-between items-center px-10 bg-gray-200" : "flex-row justify-between items-center px-10"}
@@ -72,7 +76,7 @@ const RideOptionsCard = () => {
                         <Text className="ml-3" >{travelTimeInfo && formatTime(travelTimeInfo?.duration?.value * timeMultiplier)}</Text>
                     </View>
                     <Text className="text-xl" >
-                        <Currency quantity={Number(travelTimeInfo?.duration?.value) * surgeRate * priceMultiplier / 100} currency="USD" />
+                    {travelTimeInfo?.duration ? <Currency quantity={Number(travelTimeInfo?.duration?.value) * surgeRate * priceMultiplier / 100} currency="USD" /> : "N/A"}
                     </Text>
                 </TouchableOpacity>
             )}
